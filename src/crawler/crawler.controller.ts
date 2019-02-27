@@ -11,8 +11,6 @@ export class CrawlerController {
 	@Post('/buscar')
 	public search(@Body(CrawlerPipe) payload: ICrawlerSearch) {
 
-		this.crawlerService.execute(payload);
-
-		return payload;
+		return this.crawlerService.execute(payload);
 	}
 }
