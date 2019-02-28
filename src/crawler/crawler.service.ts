@@ -7,7 +7,7 @@ export class CrawlerService {
 
 	public async execute(search: ICrawlerSearch) {
 
-		const browser = await puppeter.launch();
+		const browser = await puppeter.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 		const page = await browser.newPage();
 
 		await page.goto(`https://myreservations.omnibees.com/default.aspx?q=5462&version=MyReservation&sid=425b2630-3541-4f3f-bb6e-bc7274989bbf#/&diff=false&CheckIn=${search.checkin}&CheckOut=${search.checkout}&Code=&group_code=&loyality_card=&NRooms=1&ad=1&ch=0&ag=-`, {
